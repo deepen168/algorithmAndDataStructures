@@ -16,12 +16,10 @@ function midpoint(list) {
     let slow = list.getFirst();
     let fast = list.getFirst();
 
-    if(slow.next && fast.next.next){
-        while(slow.next && fast.next.next){
-            slow = slow.next;
-            fast = fast.next.next;
+        while(fast.next && fast.next.next){
+                slow = slow.next;
+                fast = fast.next.next;
         }
-    }
 
     return slow;
 }
