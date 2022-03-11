@@ -39,7 +39,7 @@ function weave(sourceOne, sourceTwo) {
         }
     }
 
-    return queue
+    return queue;
 }
 
 module.exports = weave;
