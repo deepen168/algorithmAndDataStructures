@@ -27,9 +27,6 @@ const Queue = require('./queue');
 function weave(sourceOne, sourceTwo) {
     let queue = new Queue;
 
-    console.log(sourceOne);
-
-    //TODO: How does sourceOne has access to peek method from queue class?
     while(sourceOne.peek() || sourceTwo.peek()){
         if(sourceOne.peek()){
             queue.add(sourceOne.remove());
@@ -43,25 +40,3 @@ function weave(sourceOne, sourceTwo) {
 }
 
 module.exports = weave;
-
-
-const one = new Queue();
-one.add(1);
-one.add(2);
-one.add(3);
-one.add(4);
-const two = new Queue();
-two.add('one');
-two.add('two');
-two.add('three');
-two.add('four');
-
-const result = weave(one, two);
-
-result.remove();
-// console.log(result.remove());
-// console.log(result.remove());
-// console.log(result.remove());
-// console.log(result.remove());
-// console.log(result.remove());
-// console.log(result.remove());

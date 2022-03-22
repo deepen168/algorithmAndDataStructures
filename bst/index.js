@@ -33,6 +33,30 @@ class Node {
             }
         }
     }
+
+    contains(data) {
+        if(this.data === data) {
+            return this;
+        }
+        
+        if(data > this.data) {
+            if(this.right === null) {
+                return null;
+            } else if(this.right.data === data){
+                return this.right;
+            } else {
+                this.right.contains(data);
+            }
+        } else {
+            if(this.left === null) {
+                return null;
+            } else if(this.left.data === data){
+                return this.left;
+            } else {
+                this.left.contains(data);
+            }
+        }
+    }
 }
 
 module.exports = Node;
