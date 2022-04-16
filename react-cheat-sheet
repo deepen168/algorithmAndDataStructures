@@ -1,0 +1,159 @@
+JSX - HTML + JS
+Has vertual dom - React keeps Vertual dom and Real dom in sync
+
+Components:
+    
+    Class based: No one uses is mostly
+
+        import React, {component} from 'react';
+
+        class Exemple extends component {
+            render () {
+                return <div>Hello World!</div>
+            }
+        }
+
+    Functional:
+
+    - install new project npx create-react-app
+    - any JS can be injected between {}
+    - React fragment: <> </>  Used to enter multiple html elements
+        <>
+            <h1>Name</h1>
+            <h2>Age</h2>
+        </>
+    - Child component can be named as <componentName />
+    - callback to send data from parent to child
+
+
+                import React from 'react';                                           
+                import Child from './Child'                                          
+                class App extends React.Component{                                   
+                                                                                     
+                    state = {                                                        
+                        name: "",                                                    
+                    }                                                                
+                                                                                     
+                    handleCallback = (childData) =>{                                 
+                        this.setState({name: childData})                             
+                    }                                                                
+                                                                                     
+                    render(){                                                        
+                        const {name} = this.state;                                   
+                        return(                                                      
+                            <div>                                                    
+                                <Child parentCallback = {this.handleCallback}/>      
+                                {name}                                               
+                            </div>                                                   
+                        )                                                            
+                    }                                                                       
+                }                                                                       
+                export default App
+
+                
+                import React from 'react'
+                class Child extends React.Component{
+                    
+                    onTrigger = (event) => {
+                        this.props.parentCallback(event.target.myname.value);
+                        event.preventDefault();
+                    }
+                
+                    render(){
+                        return(
+                        <div>
+                            <form onSubmit = {this.onTrigger}>
+                                <input type = "text" 
+                                name = "myname" placeholder = "Enter Name"/>
+                                <br></br><br></br>
+                                <input type = "submit" value = "Submit"/>
+                                <br></br><br></br>
+                            </form>
+                        </div>
+                        )
+                    }
+                }
+                export default Child
+
+
+    - props can be used to pass input into Child Components
+        const Child = (props) => {
+            return (
+                <>
+                    <h1>name: {props.name}</h1>
+                    <h2>Last Name: {props.lastName}</h2>
+                    <h12>Age: {props.age}</h2>
+                </>
+            )
+        }
+
+        const App = () => {
+            return (
+                <div className="App">
+                    <Child name='john' lastName='doe' age='29' />
+                    <Child name='jane' lastName='doe' age='40' />
+                    <Child name='james' lastName='doe' age='33' />
+                </div>
+            )
+        }
+
+        export default App;
+
+    - HOOKS 
+        useState:
+
+            import { useState } from 'react';
+
+            const App = () => {
+                const [counter, SetCounter] = useState(0);
+
+                return (
+                    <div className="App">
+                        <button onClick={() => setcounter((prevCount) => prevCount - 1)}>-</button>
+                        <h1>{counter}</h1>
+                        <button onClick={() => setcounter((prevCount) => prevCount + 1)}>+</button>
+                    </div>
+                )
+            }
+
+        useEffect: Runs as the app loads
+    
+    - Routes: Route tag and path
+
+        import React from 'react';
+        import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+        import './App.css';
+
+        import Manatee from '../Manatee/Manatee';
+        import Narwhal from '../Narwhal/Narwhal';
+        import Whale from '../Whale/Whale';
+
+        function App() {
+        return (
+            <div className="wrapper">
+            <h1>Marine Mammals</h1>
+            <BrowserRouter>
+                <nav>
+                <ul>
+                    <li><Link to="/manatee">Manatee</Link></li>
+                    <li><Link to="/narwhal">Narwhal</Link></li>
+                    <li><Link to="/whale">Whale</Link></li>
+                </ul>
+                </nav>
+                <Switch>
+                <Route path="/manatee">
+                    <Manatee />
+                </Route>
+                <Route path="/narwhal">
+                    <Narwhal />
+                </Route>
+                <Route path="/whale">
+                    <Whale />
+                </Route>
+                </Switch>
+            </BrowserRouter>
+            </div>
+        );
+        }
+
+        export default App;

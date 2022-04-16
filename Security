@@ -1,0 +1,2 @@
+cross site scripting: CSRF attack, dont store tokens in coockies
+Cors: allow-origin set this to let other hosts access resources

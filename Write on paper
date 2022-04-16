@@ -1,0 +1,30 @@
+Write on paper:
+
+for(const [index, num] of nums.entries()) - for of for array, for in for object
+
+[...arr] or arr.push(...arr2)
+{...obj}
+const arr = [1,2];
+const [a, b] = arr; // a = 1, b = 2
+
+const obj = {a:1, b:2};
+const {a1, b1} ] = obj; // a1 = 1, b1 = 2
+
+Authentication - token
+Authorization - Roles
+
+HTML tags
+
+<html>  <style>   <head>   <body>   <script>   <h1>    <p>
+<label for="idOfInput">
+<input type="text/radio/password/checkbox/color/date/...." id="usedInlabel" value="default"?
+<button class="button button2">Blue</button>
+<img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600">
+
+<ol> <livalue="startPoint"> with numbers
+<ul> <li> bullet points | to remove bullets list-style-type: none;
+
+
+
+document.getElementById("id").onclick = functioncall
+document.getElementById("id").innerHTML = "str";
