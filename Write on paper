@@ -28,3 +28,22 @@ HTML tags
 
 document.getElementById("id").onclick = functioncall
 document.getElementById("id").innerHTML = "str";
+
+Request headers:
+Accept:  application/json - The media type/types acceptable
+Access-Control-Request-Method - GET/POST/PUT/DELETE
+Access-Control-Request-Headers: origin, x-requested-with, accept
+Authorization: Bearer by.....
+Content-Type: application/x-www-form-urlencoded - The content type of the body of the request (used in POST and PUT requests).
+Coockie:
+Host:
+origin:
+X-CSRF-Token:
+
+Response headers:
+Cache-control: public(browser and proxy server can cache),
+    private(only browser can cache) 
+    , max-age=(in second)
+    , must-revalidate(revalidate after expired)
+    , no-cache(validate everytime before reused
+    , no-store(dont store response)
