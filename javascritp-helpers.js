@@ -46,3 +46,9 @@ const [a, b] = arr; // a = 1, b = 2
 
 const obj = {a:1, b:2};
 const {a1, b1} ] = obj; // a1 = 1, b1 = 2
+
+
+ARRAY:
+Const arr = [0,1,2,3,4,5,6]
+arr.indexOf(1) // 1
+arr.forEach(() =>)
