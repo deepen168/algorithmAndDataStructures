@@ -19,11 +19,10 @@ HTML tags
 <label for="idOfInput">
 <input type="text/radio/password/checkbox/color/date/...." id="usedInlabel" value="default"?
 <button class="button button2">Blue</button>
-<img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600">
+<img src="img_boy.jpg" alt="the image of a boy" width="500" height="600">
 
 <ol> <livalue="startPoint"> with numbers
 <ul> <li> bullet points | to remove bullets list-style-type: none;
-
 
 
 document.getElementById("id").onclick = functioncall
