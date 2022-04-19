@@ -52,3 +52,11 @@ Cache-control: public(browser and proxy server can cache),
     , no-cache(validate everytime before reused
     , no-store(dont store response)
 
+Center div ---
+text-align: center
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+flex---
+display: flex;
+align-items: center;
