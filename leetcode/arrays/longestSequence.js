@@ -42,7 +42,7 @@ function longestConsecutive(nums) {
 
     longestConsecutiveSequenceNumber[0].push(noDuplicateNums[0]);
     
-    for(let i = 1; i< noDuplicateNums.length; i++) {
+    for(let i = 1; i < noDuplicateNums.length; i++) {
         if(noDuplicateNums[i-1] + 1 !== noDuplicateNums[i]) {
             indexOfElement++;
             longestConsecutiveSequenceNumber.push([]);

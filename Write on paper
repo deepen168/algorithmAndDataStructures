@@ -30,8 +30,11 @@ document.getElementById("id").innerHTML = "str";
 const div = document.createElement('div');
 div.classList.add('className');
 const h2 = document.createElement('h2');
-h2.textContent = category;
-for child use append: div.append(h2); // div.prepend(h2) to add element at the start
+h2.textContent = "category";
+to add before elements: div.append(h2); // div.prepend(h2) to add element at the start
+to add child element: parentElement.appendChild(childElement)
+element.remove()
+element.addEventListener('change', (e) => console.log(e))
 
 Request headers:
 Accept:  application/json - The media type/types acceptable
@@ -52,6 +55,15 @@ Cache-control: public(browser and proxy server can cache),
     , no-cache(validate everytime before reused
     , no-store(dont store response)
 
+css: content - padding - border - margin 
+Flex:
+display: flex;
+flex-direction: row | row-reverse | column | column-reverse
+flex-wrap: nowrap | wrap;
+justify-content: flex-start | flex-end | center
+ITEMS: 
+li {flex-grow: 4 | 1 | 2;}
+
 Center div ---
 text-align: center
 top: 50%;
@@ -60,3 +72,9 @@ transform: translate(-50%, -50%);
 flex---
 display: flex;
 align-items: center;
+
+function.bind(obj)
+function.call(obj, arg)
+function.apply(obj, [...args])
+
+function.reduce(rev,val) => rev + val, '')  -> arr.reduce((revisionVal, eachElement) => revision + eachElement, initialValue);

@@ -1,0 +1,98 @@
+Angular Help:
+
+---------------AppRoutingModule (excerpt)
+content_copy
+const routes: Routes = [
+  { path: 'first-component', component: FirstComponent },
+  { path: 'second-component', component: SecondComponent },
+];
+
+----------------index
+<h1>Angular Router App</h1>
+<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
+<nav>
+  <ul>
+    <li><a routerLink="/first-component" routerLinkActive="active">First Component</a></li>
+    <li><a routerLink="/second-component" routerLinkActive="active">Second Component</a></li>
+  </ul>
+</nav>
+<!-- The routed views render in the <router-outlet>-->
+<router-outlet></router-outlet>
+
+--------------------Hooks
+
+ngOnInit
+ngafterViewInit
+ngOnChanges
+ngDestroy
+
+*ngIf="expression"
+*ngFor="let val of vals"
+@input() propertyName <component [value]="sdfsfs">
+@output() propertyName = New EventEmitter(); <component (output)="$event.target.value"
+<div (click)="method">
+
+
+
+eventEmitter.event(value?)
+const observable = new Objservable(subscriber => {
+    subscriber.next(1);
+    setTimeout(()=> {
+        subscriber.next(2);
+        subscriber.complete();
+    }, 2000);
+    
+})
+observable.subscribe({next(), error(), complete()})
+
+
+<p>{{data}}</p>
+
+import { HttpClient } from '@angular/common/http';
+
+constructor(private httpClient: HttpClient)
+return this.httpClient.get(workflowApiEndpoint) as Observable<any>
+
+
+-------------------------------------------------------------
+import { HttpClient } from  '@angular/common/http';
+import { Injectable } from  '@angular/core';
+
+@Injectable({
+providedIn:  'root'
+})
+
+export class HttpService {
+
+    private url = 'https://my-json-server.typicode.com/JSGund/XHR-Fetch-Request-JavaScript/posts';
+
+    constructor(private http: HttpClient) { }
+
+    getPosts() {
+        return this.http.get(this.url);
+    }
+}
+
+---------------------------------------------
+
+import { Component } from '@angular/core';
+import { HttpService } from './http.service';
+
+@Component({
+selector: 'app-root',
+templateUrl: './app.component.html',
+styleUrls: ['./app.component.css']
+})
+
+export  class  AppComponent {
+title = 'Article by Jeetendra';
+posts : any;
+constructor(private httpService: HttpService) { }
+
+ngOnInit() {
+	this.httpService.getPosts().subscribe(
+        (response) => { this.posts = response; },
+        (error) => { console.log(error); });
+    }
+
+}
