@@ -1,59 +1,9 @@
 Write on paper:
 
-for(const [index, num] of nums.entries()) - for of for array, for in for object
-
-[...arr] or arr.push(...arr2)
-{...obj}
-const arr = [1,2];
-const [a, b] = arr; // a = 1, b = 2
-
-const obj = {a:1, b:2};
-const {a1, b1} ] = obj; // a1 = 1, b1 = 2
 
 Authentication - token
 Authorization - Roles
 
-HTML tags
-
-<html>  <style>   <head>   <body>   <script>   <h1>    <p>
-<label for="idOfInput">
-<input type="text/radio/password/checkbox/color/date/...." id="usedInlabel" value="default"?
-<button class="button button2">Blue</button>
-<img src="img_boy.jpg" alt="the image of a boy" width="500" height="600">
-
-<ol> <livalue="startPoint"> with numbers
-<ul> <li> bullet points | to remove bullets list-style-type: none;
-
-
-document.getElementById("id").onclick = functioncall
-document.getElementById("id").innerHTML = "str";
-const div = document.createElement('div');
-div.classList.add('className');
-const h2 = document.createElement('h2');
-h2.textContent = "category";
-to add before elements: div.append(h2); // div.prepend(h2) to add element at the start
-to add child element: parentElement.appendChild(childElement)
-element.remove()
-element.addEventListener('change', (e) => console.log(e))
-
-Request headers:
-Accept:  application/json - The media type/types acceptable
-Access-Control-Request-Method - GET/POST/PUT/DELETE
-Access-Control-Request-Headers: origin, x-requested-with, accept
-Authorization: Bearer by.....
-Content-Type: application/x-www-form-urlencoded - The content type of the body of the request (used in POST and PUT requests).
-Coockie:
-Host:
-origin:
-X-CSRF-Token:
-
-Response headers:
-Cache-control: public(browser and proxy server can cache),
-    private(only browser can cache) 
-    , max-age=(in second)
-    , must-revalidate(revalidate after expired)
-    , no-cache(validate everytime before reused
-    , no-store(dont store response)
 
 css: content - padding - border - margin 
 Flex:

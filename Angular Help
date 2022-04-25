@@ -35,7 +35,7 @@ ngDestroy
 
 
 eventEmitter.event(value?)
-const observable = new Objservable(subscriber => {
+const observable = new observable(subscriber => {
     subscriber.next(1);
     setTimeout(()=> {
         subscriber.next(2);
@@ -96,3 +96,5 @@ ngOnInit() {
     }
 
 }
+
+<option *ngFor="let val of vals">{val}</option>
