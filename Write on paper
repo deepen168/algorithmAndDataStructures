@@ -5,26 +5,8 @@ Authentication - token
 Authorization - Roles
 
 
-css: content - padding - border - margin 
-Flex:
-display: flex;
-flex-direction: row | row-reverse | column | column-reverse
-flex-wrap: nowrap | wrap;
-justify-content: flex-start | flex-end | center
-ITEMS: 
-li {flex-grow: 4 | 1 | 2;}
-
 Center div ---
 text-align: center
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
-flex---
-display: flex;
-align-items: center;
-
-function.bind(obj)
-function.call(obj, arg)
-function.apply(obj, [...args])
-
-function.reduce(rev,val) => rev + val, '')  -> arr.reduce((revisionVal, eachElement) => revision + eachElement, initialValue);

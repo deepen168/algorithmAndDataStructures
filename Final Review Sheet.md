@@ -1,6 +1,5 @@
 # Final Review Sheet:
 ## Javascript:
-### Iteration tricks:
 #### Arrays:
 `for(const [index, num] of arr.entries())`
 
@@ -11,6 +10,27 @@
 ```
 const arr = [1,2];
 const [a, b] = arr; // a = 1, b = 2
+
+arr.reduce(rev,val) => rev + val, '')  -> arr.reduce((revisionVal, eachElement) => revision + eachElement, initialValue);
+arr.map((val)=> )
+arr.forEach((val) => val*2)
+arr.filter((val) => 
+	if(val != 1){
+		retrun val;
+	}
+)
+```
+```
+const arr = [0,1,2,3,4,5,6]
+arr.slice(2); // [2,3,4,5] Does not modify original array
+arr.slice(1,4) // [1,2,3] Does not modify original array
+arr.slice(-2) // [5,6] Does not modify original array
+arr.slice(2, -1) // [2,3,4,5] Does not modify original array
+
+arr.splice(2) // [2,3,4,5] Modifies the original array
+arr.splice(start, deleteCount, addItem1, addItem2, addItem3, ...)
+
+arr.indexOf(1) // 1
 ```
 
 #### Object:
@@ -26,6 +46,93 @@ const {a1, b1} = obj; // a1 = 1, b1 = 2
 `{...obj}` - Pushes all the deep properties of object
 
 #### This:
+
+	references to the object that is calling the function
+	There are three ways to call functions:
+	1. function call as constructor, in this case this points to the function object if it was instantiated with new keyword
+	2. object property as function, this will point to global object. window/process
+		in strict mode it will be undefined until bind with any object
+	3. indirect invocation
+```
+function car(model){
+	console.log(model + ' and '+ this.make);
+}
+
+const honda = {
+	make: 'honda'
+}
+
+const toyota = {
+	make: 'toyota'
+}
+
+
+const hondaCar = car.call(honda, 'accord')
+const toyotaCar = car.call(toyota, 'corolla')
+```
+
+```
+function.bind(obj)
+function.call(obj, arg)
+function.apply(obj, [...args])
+```
+
+#### promise:
+```
+async function f() {
+
+    let promise = new Promise((resolve, reject) => {
+	    try {
+			setTimeout(() => resolve("done!"), 1000);
+		} catch (error) {
+			reject(new Error('Failed')l
+		}
+    });
+  
+    let result = await promise; // wait until the promise resolves (*)
+  
+    alert(result); // "done!"
+}
+
+f();
+
+```
+
+#### iterator:
+```
+function* makeIterator() {
+    yield 1;
+    yield 2;
+}
+
+const it = makeIterator();
+it.next() // {value: 1, done:false}
+
+can also be iterated by for of loop:
+
+for (const itItem of it) {
+    console.log(itItem);
+}
+
+```
+#### Memory:
+	Stack -  all premitive types are stored here, string, bool, numbers, references to Object and arrays in heap.
+	Heap - all the objects and arrays are stored here
+	
+#### ___proto_ or prototype
+	__proto__ - added to strings, nums, bool, array, object. all the executing methods
+	prototype - added to classes, this stores all the base methods inside
+
+#### Event-Loop and how JS executes
+
+	call stack                   Web apis
+	Javascript executes 		  Timeout and async waits happen here
+	everything here 	
+	
+	
+	EventLoop
+	Event Queue - once wait or promises are fulfilled, they come here and wait for call stack to be over then they go inside call stack to be executed
+	Render Queue - Animations come here and goes in the call stack in same fashion as event queue
 
 #### html menipulation:
 
@@ -67,15 +174,114 @@ element.addEventListener('change', (e) => console.log(e))
 	<ul> <li> bullet points | to remove bullets list-style-type: none;
 ```
 
-
-
-
 ## Angular:
 
 ## React:
 
 ## CSS:
+###Content - Padding - Border - Margin
+###Flex:
+#####Parent container:
+	display: flex; - add this to parent container
+	flex-direction: row | row-reverse | column | column-reverse
+	flex-wrap: nowrap | wrap
+	justify-content: flex-start | flex-end | center
+	
+#####Child container:
+	li {flex-grow: 4 | 3 | 2}
 
+###Common CSS:
+	@media screen and (max-width: 600px), (max-height: 500px)
+	
+	em - relative to parent element
+	rem - relative to root element of html
+	
+	reset page
+	*{
+		margin:0;
+		padding:0;
+	}
+	
+	border: 5px solid #1C6EA4;
+	
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	display: block | inline - blocks rest of the line, inline allows other elements
+	
+	background-image: url('./path')
+	background-color: #ffffff; -sets background color
+	color: #ffffff; - sets color of font or icon
+	float: left
+
+#####Selectors:
+	.class tag{} 
+	.class tag, .class {} - applies to both paths
+	.class > tag {} - tag inside class
+	.class input[type="text"]	
+	
+#####Text:	
+	font-family: arial, helvetica, sans-sarif;
+	font-size: 16px;
+	font-weight: normal; // 100 | 200 | 300
+	alt---
+	font: normal 16px arial, helvetica, sans-sarif;
+	line-height: 1.6em - use em for to the fonts
+	text-align: center;
+	text-decoration: underline; | none
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	word-spacing: 1em;
+	
+#####List:
+	list-style: square;
+	list-style: none;
+	list-style-image: url('./image-path/.jpg')
+		
+	
+#####pseudo:
+	:hover
+	:active - when element is clicked on
+	:visited - changes color if element is visited(needs actual page in href)
+	:first-child
+	:last-child
+	:nth-child(index | even | odd)
+	
+#####Button reset:
+	.button{
+		background-color: #333;
+		color: #fff;
+		padding: 10px 15px;
+		border: none;
+	}
+
+#####Positioning elements side by side
+	float: left;
+	width: 33.3% - three block in the same line
+	padding: 15px; this will make one of the block wrap into next line
+	box-sizing: border-box; this will adjust width accordingly and account for padding and any border added
+	
+	
+#####Positioning:
+	static- default, follows the document flow
+	relative - set this to parent and absolute will help move child element inside
+	absolute - if parent is set to relative then child can be absolute and positioned whereever we want
+	fixed - fixed position on the page, does not scroll with page scroll
+	
+#####CSS preprocessor - less
+	variables: @variable: value;
+	create functions: 
+	.class(@hightval: 5px) {
+		height: @heightval;
+	}
+	Nested rules:
+	div {
+		h1 {
+			a {}
+		}
+	}
+	
 ## Database:
 
 ## API:
@@ -170,13 +376,30 @@ Cache-control: public(browser and proxy server can cache),
 ## Space complexity:
 
 
-
-
-
-
-
-
-
+##Linkedin:
+	1. Event Propagation - specifically event bubbling and capturing. Give example.
+		1. elem.addEventListener('click', function, capturing = false)
+		2. capturing goes runs event from parent to child
+		3. bubbling goes from child to parent
+	2. CSS common methods and crash course
+	3. css preprocessors
+	4. How do you hide an element in web page?
+	5. How many ways can you compare two objects in javascript?
+		1. I use lodash.isEqual for it
+		2. iterate over props, shallow and deep
+	6. binary tree node = data, children = [], add(), remove() traverse() -> Bfs,Dfs
+	7.closures
+		1. Function within function that uses variables from main function.
+	8. inheritance
+		function Foo(){
+			this.a = 1
+		}
+		Foo.prototype.b = 2
+		
+		const foo = new Foo();
+		foo.a // 1
+		foo.b // 2
+	9. execute a function without a constructor 
 
 
 

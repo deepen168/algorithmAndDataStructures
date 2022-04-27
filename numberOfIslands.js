@@ -10,9 +10,9 @@ const numIslands = (grid) => {
         grid[i][j] === '1'
       ) {
         grid[i][j] = '0';
-        dfs(i + 1, j); // top
+        dfs(i + 1, j); // bottom
         dfs(i, j + 1); // right
-        dfs(i - 1, j); // bottom
+        dfs(i - 1, j); // top
         dfs(i, j - 1); // left
       }
     };
