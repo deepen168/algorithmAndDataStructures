@@ -12,13 +12,15 @@ const arr = [1,2];
 const [a, b] = arr; // a = 1, b = 2
 
 arr.reduce(rev,val) => rev + val, '')  -> arr.reduce((revisionVal, eachElement) => revision + eachElement, initialValue);
-arr.map((val)=> )
-arr.forEach((val) => val*2)
+arr.map((val) => val*2) // creates new array with returned value
+arr.forEach((val, index) => {
+	// use val and index here
+})
 arr.filter((val) => 
 	if(val != 1){
 		retrun val;
 	}
-)
+) // creates new array with returned value
 ```
 ```
 const arr = [0,1,2,3,4,5,6]
@@ -29,6 +31,14 @@ arr.slice(2, -1) // [2,3,4,5] Does not modify original array
 
 arr.splice(2) // [2,3,4,5] Modifies the original array
 arr.splice(start, deleteCount, addItem1, addItem2, addItem3, ...)
+
+arr.join('')
+arr.includes('')
+arr.indexOf(val)
+arr.reverse()
+arr.sort((a,b) => a - b)
+
+Array.isArray(arr)
 
 arr.indexOf(1) // 1
 ```
@@ -44,6 +54,21 @@ const {a1, b1} = obj; // a1 = 1, b1 = 2
 ```
 
 `{...obj}` - Pushes all the deep properties of object
+
+	obj.hasOwnProperty(property)
+	Object.assign({}, obj) || {...obj} // copies from obj to empty or other object
+	Object.create(obj) // creates a new object with obj as prototype
+	
+#### String:
+	str.charAt(index)
+	str.includes(word)
+	str.indexOf(word|letter, startPoint)
+	str.replace(word|regex, word)
+	str.slice(start, end)
+	str.split(' ') //returns array
+	str.subsring(start, end)
+	str.toUpperCase() || str.toLowerCase()
+	str.trim() || trimEnd() || trimStart()
 
 #### This:
 
