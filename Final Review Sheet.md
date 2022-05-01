@@ -63,8 +63,7 @@ const {a1, b1} = obj; // a1 = 1, b1 = 2
 	str.charAt(index)
 	str.includes(word)
 	str.indexOf(word|letter, startPoint)
-	str.replace(word|regex, word)
-	str.slice(start, end)
+	str.replace(word|regex, word) || replaceAll(word|regex, word)
 	str.split(' ') //returns array
 	str.subsring(start, end)
 	str.toUpperCase() || str.toLowerCase()
@@ -123,7 +122,7 @@ f();
 
 ```
 
-#### iterator:
+#### iterator | generator function:
 ```
 function* makeIterator() {
     yield 1;
@@ -144,7 +143,7 @@ for (const itItem of it) {
 	Stack -  all premitive types are stored here, string, bool, numbers, references to Object and arrays in heap.
 	Heap - all the objects and arrays are stored here
 	
-#### ___proto_ or prototype
+#### ___proto_ or prototype [Revisit]
 	__proto__ - added to strings, nums, bool, array, object. all the executing methods
 	prototype - added to classes, this stores all the base methods inside
 
@@ -158,25 +157,6 @@ for (const itItem of it) {
 	EventLoop
 	Event Queue - once wait or promises are fulfilled, they come here and wait for call stack to be over then they go inside call stack to be executed
 	Render Queue - Animations come here and goes in the call stack in same fashion as event queue
-
-#### html menipulation:
-
-```
-document.getElementById("id").onclick = functioncall
-document.getElementById("id").innerHTML = "str";
-document.getElementById("inputTagId").value = "str";
-document.querySelector("path")
-document.querySelectorAll("path")
-
-const div = document.createElement('div');
-div.classList.add('className');
-const h2 = document.createElement('h2');
-h2.innerHTML = "category";
-to add before elements: div.append(h2); || div.prepend(h2) to add element at the start
-to add child element: parentElement.appendChild(childElement) || parentElem.prependChild(childElem)
-element.remove()
-element.addEventListener('change', (e) => console.log(e))
-```
 
 ## HTML:
 ```
@@ -199,13 +179,49 @@ element.addEventListener('change', (e) => console.log(e))
 	<ul> <li> bullet points | to remove bullets list-style-type: none;
 ```
 
+#### html menipulation:
+
+```
+document.getElementById("id").onclick = functioncall
+document.getElementById("id").innerHTML = "str";
+document.getElementById("inputTagId").value = "str";
+document.querySelector("path")
+document.querySelectorAll("path")
+
+const div = document.createElement('div');
+div.setAttribute('id' | 'class' | 'value', assignValue)
+div.removeAttribute('att');
+div.classList.add('className');
+const h2 = document.createElement('h2');
+h2.innerHTML = "category";
+to add before elements: div.append(h2); || div.prepend(h2) to add element at the start
+to add child element: parentElement.appendChild(childElement) || parentElem.prependChild(childElem)
+element.remove()
+element.addEventListener('change', (e) => console.log(e))
+```
+
+####Accessibility
+	Use headers <h1>,<h2>,<h3>… ;
+	Use <img alt=””;
+	Use attributetabindex=”index_position” to navigate the focus using Tab key;
+	Use roles like <ul role=”list”><li role=”listitem”>, <dialog role=”dialog”. Find the whole list here;
+	Use accesskey=”key” for creating keyboard shortcuts;
+	use attributes to describe the element:
+	   aria-label=”label_text”or aria-labelledby=”text_id”, aria-describedby=”text_id” and <label id="text_id">label_text</label> ;
+	Use color contrasts, textures;
+	Use text size;
+	Use captions in a video;
+
 ## Angular:
 
 ## React:
 
 ## CSS:
+
 ###Content - Padding - Border - Margin
+
 ###Flex:
+
 #####Parent container:
 	display: flex; - add this to parent container
 	flex-direction: row | row-reverse | column | column-reverse
@@ -336,6 +352,7 @@ Cache-control: public(browser and proxy server can cache),
 ```
 
 ## Data structures
+
 ### Stacks:
 	[1,2,3,4,5] - 5 goes in last and comes out first
 
@@ -400,6 +417,10 @@ Cache-control: public(browser and proxy server can cache),
 
 ## Space complexity:
 
+##Misc:
+
+/[^a-zA-Z0-9]/g - to keep strings and numbers. add any perticular symbol or char you want to keep and it will keep it
+
 
 ##Linkedin:
 	1. Event Propagation - specifically event bubbling and capturing. Give example.
@@ -408,7 +429,9 @@ Cache-control: public(browser and proxy server can cache),
 		3. bubbling goes from child to parent
 	2. CSS common methods and crash course
 	3. css preprocessors
-	4. How do you hide an element in web page?
+	4. How do you hide an element in web page? 
+		1. add hidden tag
+		2. set display: none for element
 	5. How many ways can you compare two objects in javascript?
 		1. I use lodash.isEqual for it
 		2. iterate over props, shallow and deep
@@ -424,7 +447,9 @@ Cache-control: public(browser and proxy server can cache),
 		const foo = new Foo();
 		foo.a // 1
 		foo.b // 2
-	9. execute a function without a constructor 
+	9. execute a function without a constructor
+	10. how to load video in html?
+	11. how to add caption to video for accessibility?
 
 
 
