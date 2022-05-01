@@ -143,7 +143,8 @@ for (const itItem of it) {
 	Stack -  all premitive types are stored here, string, bool, numbers, references to Object and arrays in heap.
 	Heap - all the objects and arrays are stored here
 	
-#### ___proto_ or prototype [Revisit]
+#### ___proto_ or prototype
+
 	__proto__ - added to strings, nums, bool, array, object. all the executing methods
 	prototype - added to classes, this stores all the base methods inside
 
@@ -200,7 +201,7 @@ element.remove()
 element.addEventListener('change', (e) => console.log(e))
 ```
 
-####Accessibility
+#### Accessibility
 	Use headers <h1>,<h2>,<h3>… ;
 	Use <img alt=””;
 	Use attributetabindex=”index_position” to navigate the focus using Tab key;
@@ -218,20 +219,21 @@ element.addEventListener('change', (e) => console.log(e))
 
 ## CSS:
 
-###Content - Padding - Border - Margin
 
-###Flex:
+### Content - Padding - Border - Margin
 
-#####Parent container:
+### Flex:
+
+##### Parent container:
 	display: flex; - add this to parent container
 	flex-direction: row | row-reverse | column | column-reverse
 	flex-wrap: nowrap | wrap
 	justify-content: flex-start | flex-end | center
 	
-#####Child container:
+##### Child container:
 	li {flex-grow: 4 | 3 | 2}
 
-###Common CSS:
+### Common CSS:
 	@media screen and (max-width: 600px), (max-height: 500px)
 	
 	em - relative to parent element
@@ -256,13 +258,13 @@ element.addEventListener('change', (e) => console.log(e))
 	color: #ffffff; - sets color of font or icon
 	float: left
 
-#####Selectors:
+##### Selectors:
 	.class tag{} 
 	.class tag, .class {} - applies to both paths
 	.class > tag {} - tag inside class
 	.class input[type="text"]	
 	
-#####Text:	
+##### Text:	
 	font-family: arial, helvetica, sans-sarif;
 	font-size: 16px;
 	font-weight: normal; // 100 | 200 | 300
@@ -275,13 +277,13 @@ element.addEventListener('change', (e) => console.log(e))
 	letter-spacing: 0.2em;
 	word-spacing: 1em;
 	
-#####List:
+##### List:
 	list-style: square;
 	list-style: none;
 	list-style-image: url('./image-path/.jpg')
 		
 	
-#####pseudo:
+##### pseudo:
 	:hover
 	:active - when element is clicked on
 	:visited - changes color if element is visited(needs actual page in href)
@@ -289,7 +291,7 @@ element.addEventListener('change', (e) => console.log(e))
 	:last-child
 	:nth-child(index | even | odd)
 	
-#####Button reset:
+##### Button reset:
 	.button{
 		background-color: #333;
 		color: #fff;
@@ -297,32 +299,41 @@ element.addEventListener('change', (e) => console.log(e))
 		border: none;
 	}
 
-#####Positioning elements side by side
+##### Positioning elements side by side
 	float: left;
 	width: 33.3% - three block in the same line
 	padding: 15px; this will make one of the block wrap into next line
 	box-sizing: border-box; this will adjust width accordingly and account for padding and any border added
 	
 	
-#####Positioning:
+##### Positioning:
 	static- default, follows the document flow
 	relative - set this to parent and absolute will help move child element inside
 	absolute - if parent is set to relative then child can be absolute and positioned whereever we want
 	fixed - fixed position on the page, does not scroll with page scroll
 	
-#####CSS preprocessor - less
-	variables: @variable: value;
-	create functions: 
-	.class(@hightval: 5px) {
-		height: @heightval;
-	}
+##### CSS preprocessor - SASS- symentically awesome style sheet [transpiler]
+	variables: $variable: value;
 	Nested rules:
-	div {
-		h1 {
-			a {}
-		}
-	}
 	
+				div {
+					h1 {
+						a {}
+					}
+				}
+				
+	Modules: breakdown sass file in two, refer by @base
+	
+	mixin:@mixin | @include - use them as functions
+				@mixin theme($theme: DarkGray) {
+					background: $theme;
+				}
+				
+	extend/inheritance:
+				@extend %message-shared {
+					border: 1px solid #ccc;
+				}
+				
 ## Database:
 
 ## API:
@@ -330,9 +341,9 @@ element.addEventListener('change', (e) => console.log(e))
 ### Headers:
 ```
 Accept:  application/json - The media type/types acceptable by client
-Access-Control-Request-Method - GET/POST/PUT/DELETE
+Access-Control-Request-Method - GET/POST/PUT/DELETE/PATCH/DELETE/OPTIONS
 Access-Control-Request-Headers: origin, x-requested-with, accept
-Authorization: Bearer by.....
+Authorization: Bearer .......
 Content-Type: application/x-www-form-urlencoded - The content type of the body of the request (used in POST and PUT requests).
 Coockie:
 Host:
@@ -356,12 +367,12 @@ Cache-control: public(browser and proxy server can cache),
 ### Stacks:
 	[1,2,3,4,5] - 5 goes in last and comes out first
 
-#####Use case:
+##### Use case:
 
-#####Time complexity: 
+##### Time complexity: 
 	O(n) for contains, O(1) to remove or peek
 	
-#####Implementation:
+##### Implementation:
 	node - stack array
 	add = arr.push
 	remove = arr.pop
@@ -370,12 +381,12 @@ Cache-control: public(browser and proxy server can cache),
 
 ### Queues:
 	[3,2,1] -  1 goes in first and comes out 1st
-#####Use case:
+##### Use case:
 
-#####Time complexity: 
+##### Time complexity: 
 	O(n) to add, contains, O(1) to remove
 	
-#####Implementation:
+##### Implementation:
 	node - queue array
 	add = arr.unshift
 	remove = arr.pop
@@ -385,31 +396,31 @@ Cache-control: public(browser and proxy server can cache),
 ### Linked-lists:
 	1 -> 2 -> 3 -> 4
 
-#####Use case:
+##### Use case:
 
-#####Time complexity:
+##### Time complexity:
 	
-#####Implementation:
+##### Implementation:
 	node = this.data, this.next
 		
 
 
 ### Binary tree:
 
-#####Use case:
+##### Use case:
 
-#####Time complexity:
+##### Time complexity:
 	
-#####Implementation:
+##### Implementation:
 
 
 ### Binary search tree:
 
-#####Use case:
+##### Use case:
 
-#####Time complexity:
+##### Time complexity:
 	
-#####Implementation:
+##### Implementation:
 
 
 ## Big o:
@@ -417,12 +428,12 @@ Cache-control: public(browser and proxy server can cache),
 
 ## Space complexity:
 
-##Misc:
+## Misc:
 
 /[^a-zA-Z0-9]/g - to keep strings and numbers. add any perticular symbol or char you want to keep and it will keep it
 
 
-##Linkedin:
+## Linkedin:
 	1. Event Propagation - specifically event bubbling and capturing. Give example.
 		1. elem.addEventListener('click', function, capturing = false)
 		2. capturing goes runs event from parent to child
@@ -451,12 +462,20 @@ Cache-control: public(browser and proxy server can cache),
 	10. how to load video in html?
 	11. how to add caption to video for accessibility?
 
+## Infinite scroll:
+	const elem = document.documentElement;
+	elem.scrollTop - scrolled pixels
+	elem.scrollHeight - total height of scrolling for element
+	elem.clientHeight - height of client pixels
 
+## Event debouncing:
+	waits for trigerring the function execution until timeout between previous event is finished
 
+	timeout is 1 sec, if user keeps typing words time out will not be met and function execution when there is a gap of greater than 1 sec 
 
+## Event throttling:
 
-
-
+	executes function once timeout is met after 1st event execution
 
 
 
