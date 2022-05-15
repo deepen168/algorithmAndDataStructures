@@ -19,3 +19,5 @@ Session service for chat between two peaople
 
 Load balancing - Consisten hashing: Can scale up easily by changing numbers
 Caching Policies - LRU(Least Recently Used) LFU(Least freaquently used) problems: Cache is empty, policy doesnt workout, cache is too small, cache is expensive 
+
+Regular shopping day - LFU, Valentines day - LRU

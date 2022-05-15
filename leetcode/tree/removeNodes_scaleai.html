@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+</body>
+<script>
+
+const _ = require('lodash');
+
+function removeNode(menu) {
+  const flat = bfs(menu);
+  let randomIndex = Math.random(0, flat.length - 1); //10
+  let randomNode = flat[randomIndex];
+
+  for(let child of menu['children']){
+    if(_.isEqual(child, randomNode)) {
+      child = null;
+      return menu;
+    }
+    removeNode(child);
+  }
+}
+
+let bfs = (menu) => {
+  let flat = [];
+  let queue = [menu];
+  while ( queue.length ) {
+     const top = queue.pop();
+     if( top.node_type !== 'category' && top.node_type !== 'root'){
+       flat.push(top);
+     }
+     for ( const child of top.children) {
+      queue.push(child);
+     }
+  }
+  return flat;
+}
+
+const sample_menu2 = {
+    "node_type": "menu",
+    "name": "root",
+    "children": [
+      {
+        "node_type": "category",
+        "name": "Breakfast",
+        "children": [
+          {
+            "node_type": "category_item",
+            "name": "Eggs Benedict",
+            "price": 8.75,
+            "children": [
+              {
+                "node_type": "item_extra",
+                "name": "Add-Ons",
+                "children": [
+                  {
+                    "node_type": "extra_option",
+                    "name": "Add Bacon",
+                    "price": 1,
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "node_type": "category",
+        "name": "Lunch",
+        "children": [
+          {
+            "node_type": "category_item",
+            "name": "Caesar Salad",
+            "price": 5.75,
+            "children": []
+          },
+          {
+            "node_type": "category_item",
+            "name": "Pastrami Sandwich",
+            "price": 6.50,
+            "children": [
+              {
+                "node_type": "item_extra",
+                "name": "Bread Choice",
+                "children": [
+                  {
+                    "node_type": "extra_option",
+                    "name": "Rye",
+                    "price": 2,
+                    "children": []
+                  },
+                  {
+                    "node_type": "extra_option",
+                    "name": "Wheat",
+                    "price": 3,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "node_type": "item_extra",
+                "name": "Add-Ons",
+                "children": [
+                  {
+                    "node_type": "extra_option",
+                    "name": "Add Bacon",
+                    "price": 1,
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+
+console.log(removeNode(sample_menu2))
+
+</script>
+</html>
+

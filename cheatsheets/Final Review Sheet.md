@@ -1,7 +1,7 @@
 # Final Review Sheet:
 ## Javascript:
 #### Arrays:
-`for(const [index, num] of arr.entries())`
+`for(const [index, num] of arr.entries()) {break; continue;}`
 
 `for(const i of arr)`
 
