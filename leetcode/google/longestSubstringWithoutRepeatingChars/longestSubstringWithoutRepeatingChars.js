@@ -22,50 +22,74 @@ Constraints:
 
 0 <= s.length <= 5 * 104
 s consists of English letters, digits, symbols and spaces.
- */
+*/
 
+// ****** Sliding windlow with array ********
 function longestSubstringWithoutRepeatingChars(str) {
-  let lastStartedIndex = 0;
-  let longestSubstring = "";
-  let currentSubstring = "";
+  let store = [];
+  let left = 0;
+  let right = 0;
+  let longestSubstr = 0;
 
-  while (lastStartedIndex < str.length) {
-    let substrArr = str.substring(lastStartedIndex).split("");
-    for (let char of substrArr) {
-      if (currentSubstring.includes(char)) {
-        if (currentSubstring.length > longestSubstring.length) {
-          longestSubstring = currentSubstring;
-        }
-        currentSubstring = "";
-        break;
-      }
-      currentSubstring += char;
+  while (right < str.length) {
+    if (store.indexOf(str[right]) == -1) {
+      store.push(str[right]);
+      longestSubstr = Math.max(longestSubstr, store.length);
+      right++;
+    } else {
+      store = store.filter((val) => val !== str[left]);
+      left++;
     }
-    lastStartedIndex++;
   }
 
-  return longestSubstring.length > currentSubstring.length
-    ? longestSubstring.length
-    : currentSubstring.length;
+  return longestSubstr;
 }
 
+// ****** Sliding windlow with set ********
 // function longestSubstringWithoutRepeatingChars(str) {
+//   let set = new Set();
+//   let start = 0;
+//   let end = 0;
+//   let longestSubstr = 0;
+
+//   while (end < str.length) {
+//     if (!set.has(str[end])) {
+//       set.add(str[end]);
+//       longestSubstr = Math.max(longestSubstr, set.size);
+//       end++;
+//     } else {
+//       set.delete(str[start]);
+//       start++;
+//     }
+//   }
+
+//   return longestSubstr;
+// }
+
+module.exports = longestSubstringWithoutRepeatingChars;
+
+// ******* ITERATIVE SOLUTION *******
+// function longestSubstringWithoutRepeatingChars(str) {
+//   let lastStartedIndex = 0;
 //   let longestSubstring = "";
 //   let currentSubstring = "";
 
-//   str.split("").forEach((currentChar) => {
-//     if (currentSubstring.includes(currentChar)) {
-//       if (currentSubstring.length > longestSubstring.length) {
-//         longestSubstring = currentSubstring;
+//   while (lastStartedIndex < str.length) {
+//     let substrArr = str.substring(lastStartedIndex).split("");
+//     for (let char of substrArr) {
+//       if (currentSubstring.includes(char)) {
+//         if (currentSubstring.length > longestSubstring.length) {
+//           longestSubstring = currentSubstring;
+//         }
+//         currentSubstring = "";
+//         break;
 //       }
-//       currentSubstring = "";
+//       currentSubstring += char;
 //     }
-//     currentSubstring += currentChar;
-//   });
+//     lastStartedIndex++;
+//   }
 
 //   return longestSubstring.length > currentSubstring.length
 //     ? longestSubstring.length
 //     : currentSubstring.length;
 // }
-
-module.exports = longestSubstringWithoutRepeatingChars;
