@@ -8,35 +8,33 @@
 // Example:
 //   fib(4) === 3
 
-
 // Memoization function
 
 function memoize(fn) {
-    
-    const cache = {};
+  const cache = {};
 
-    return (...args) => {
-        if (cache[args]) {
-            return cache[args];
-        }
-
-        const result = fn.apply(this, args);
-        cache[args] = result;
-
-        return result;
+  return (...args) => {
+    console.log("args", args);
+    if (cache[args]) {
+      return cache[args];
     }
+
+    const result = fn.apply(this, args);
+    cache[args] = result;
+    console.log("cache", cache);
+
+    return result;
+  };
 }
 function fib(n) {
-    if (n < 2) {
-        return n;
-    }
+  if (n < 2) {
+    return n;
+  }
 
-    return fib(n-1) + fib(n-2);
+  return fib(n - 1) + fib(n - 2);
 }
 
 fib = memoize(fib);
-
-fib(15);
 
 // Explonential solution
 
@@ -48,11 +46,10 @@ fib(15);
 //     return fib(n-1) + fib(n-2);
 // }
 
-
 //  My recursion
 
 // function fib(n, result = [0, 1]) {
-    
+
 //     if(result.length-1 === n){
 //         return result[n];
 //     }
@@ -64,9 +61,8 @@ fib(15);
 //     return fib(n, result);
 // }
 
-
 // function fib(n) {
-    
+
 //     let result = [0, 1];
 
 //     for( let i = 2; i <= n; i++ ) {

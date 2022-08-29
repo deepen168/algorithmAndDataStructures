@@ -12,21 +12,21 @@
 // Answer: [1, 3, 2]
 
 function levelWidth(root) {
-    let memoryArray = [root, 's'];
-    let levels = [0];
+  let memoryArray = [root, "s"];
+  let levels = [0];
 
-    while(memoryArray.length > 1) {
-        let removeElement = memoryArray.shift();
+  while (memoryArray.length > 1) {
+    let removeElement = memoryArray.shift();
 
-        if(removeElement === 's') {
-            levels.push(0);
-            memoryArray.push('s');
-        } else{
-            levels[levels.length - 1 ]++;
-            memoryArray.push(...removeElement.children)
-        }
+    if (removeElement === "s") {
+      levels.push(0);
+      memoryArray.push("s");
+    } else {
+      levels[levels.length - 1]++;
+      memoryArray.push(...removeElement.children);
     }
-    return levels;
+  }
+  return levels;
 }
 
 module.exports = levelWidth;
