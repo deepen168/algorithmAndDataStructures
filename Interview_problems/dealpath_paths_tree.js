@@ -69,3 +69,30 @@ const pathMap = (pathArr, finalPathObj) => {
 
   return finalPathObj;
 };
+
+
+/** Print count every second with setTimeout */
+function printEverySec() {
+  let count = 0;
+
+  while (count < 100) {
+    callSetTimeout(count);
+    count++;
+  }
+}
+
+function callSetTimeout(num) {
+  setTimeout(() => {
+    console.log('Count: ', num);
+  }, num * 1000)
+}
+
+
+/** Print count every second with setInterval */
+function foo() {
+  let num = 0;
+  setInterval(() => {
+    console.log('half second passed', num)
+    num++;
+  }, 2000)
+}
