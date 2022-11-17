@@ -24,7 +24,7 @@ Constraints:
 s consists of English letters, digits, symbols and spaces.
 */
 
-// ****** Sliding windlow with array ********
+// ****** Sliding window with array ********
 function longestSubstringWithoutRepeatingChars(str) {
   let store = [];
   let left = 0;
@@ -33,11 +33,13 @@ function longestSubstringWithoutRepeatingChars(str) {
 
   while (right < str.length) {
     if (store.indexOf(str[right]) == -1) {
+      // Add entry to store and store max, advance right pointer
       store.push(str[right]);
       longestSubstr = Math.max(longestSubstr, store.length);
       right++;
     } else {
-      store = store.filter((val) => val !== str[left]);
+      // remove the first entry from the list and advance left pointer
+      store.shift();
       left++;
     }
   }
