@@ -1,3 +1,5 @@
+// https://medium.com/weekly-webtips/step-by-step-guide-to-array-permutation-using-recursion-in-javascript-4e76188b88ff
+
 const permute = (arr) => {
   if (arr.length === 0) return;
   if (arr.length === 1) return arr;
