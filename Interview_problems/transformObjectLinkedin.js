@@ -13,6 +13,29 @@ const convert = [
     {skill: 'CSS', users:['Jon'], count: 1}
 ]
 
+const transformSkills = (skills) => {
+  let trackSkill = [];
+  let aggregatedObj = {};
+
+  skills.forEach(skillInstance => {
+    if(trackSkill.includes(skillInstance.skill)) {
+      aggregatedObj[skillInstance.skill] = [...aggregatedObj[skillInstance.skill], skillInstance.user]
+      return;
+    }
+      trackSkill.push(skillInstance.skill);
+      aggregatedObj[skillInstance.skill] = [skillInstance.user];
+  })
+
+  return Object.keys(aggregatedObj).map(skill => {
+    return {
+      skill: skill,
+      users: aggregatedObj[skill],
+      count: aggregatedObj[skill].length
+    }
+  })
+}
+console.log('transformSkills', transformSkills(skills))
+
 function transform(skills) {
     let result = [];
 
