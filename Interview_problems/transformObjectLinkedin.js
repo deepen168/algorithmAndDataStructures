@@ -36,6 +36,8 @@ const transformSkills = (skills) => {
 }
 console.log('transformSkills', transformSkills(skills))
 
+//**********************************************************************************
+
 function transform(skills) {
     let result = [];
 
