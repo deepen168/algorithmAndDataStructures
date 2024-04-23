@@ -9,45 +9,41 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 
+/* 
+Watchout:
+    Check if the length of both string and take the greater one
+    use regex to search or replace non-letters or numbers 
+*/
+
 function anagrams(stringA, stringB) {
-    let objA = buildCharMap(stringA);
-    let objB = buildCharMap(stringB);
+    const countStrA = countChars(stringA);
+    const countStrB = countChars(stringB);
 
-if(Object.keys(objA).length != Object.keys(objB).length){
-    return false;
-}
+    // Check which object has more values to make sure all the characters are covered
+    const objectToIterage = Object.keys(countStrA).length > Object.keys(countStrB) ? countStrA : countStrB;
 
-return compareMap(objA, objB);
-}
-
-function compareMap(objA, objB){
-
-    for(char in objA){
-        if (objA[char] !== objB[char]) {
+    // Compare objects
+    for(let charA in objectToIterage) {
+        if(!countStrB[charA] || countStrA[charA] !== countStrB[charA]) {
             return false;
-        } 
+        }
     }
     return true;
 }
 
-function buildCharMap(str) {
-    let charMap = {};
-    let charStr = str.toLowerCase().replace(/[^\w]/g, '');
-    for(let val of charStr){
-        if(!charMap[val]) {
-            charMap[val] = 1;
-        } else {
-            charMap[val]++;
+
+const countChars = (str) => {
+    const countMap = {};
+    for (let char of str) {
+        // Match any letters or numbers
+        if (char.match(/[a-zA-Z0-9]/)) {
+            if (!countMap[char]) {
+                countMap[char] = 0;
+            }
+            countMap[char]++;
         }
     }
-    return charMap;
+    return countMap;
 }
-
-// function anagrams(stringA, stringB) {
-//     let sortedStrA = stringA.toLowerCase().replace(/[^\w]/g, '').split('').sort().join('');
-//     let sortedStrB = stringB.toLowerCase().replace(/[^\w]/g, '').split('').sort().join('');
-
-//     return sortedStrA === sortedStrB;
-// }
 
 module.exports = anagrams;

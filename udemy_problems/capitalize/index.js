@@ -21,22 +21,23 @@ function capitalize(str) {
     return finalStr;
 }
 
-capitalize('hello there');
-
 // function capitalize(str) {
-//     let splitStr = str.split(' ');
-//     let capitalizedSplit = []
-//     for(word of splitStr){
-//         capitalizedSplit.push(capitalizeFirstLetter(word));
+//     const strArr = str.split('');
+//     strArr[0] = strArr[0].toUpperCase();
+//     let next = false;
+//     let i = 0;
+
+//     while(i < strArr.length) {
+//         if(strArr[i] === ' ') {
+//             next = true;
+//         } else if(next === true) {
+//             next = false;
+//             strArr[i] = strArr[i].toUpperCase();
+//         }
+//         i++;
 //     }
-//     return capitalizedSplit.join(' ');
 
-// }
-
-// function capitalizeFirstLetter(str){
-//     let strArray = str.split('');
-//     strArray[0] = strArray[0].toUpperCase();
-//     return strArray.join('');
+//     return strArr.join('');
 // }
 
 module.exports = capitalize;
