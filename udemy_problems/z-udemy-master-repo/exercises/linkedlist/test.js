@@ -10,9 +10,10 @@ test('Node is a class', () => {
   expect(typeof Node.prototype.constructor).toEqual('function');
 });
 
-describe.skip('A Node', () => {
+describe('A Node', () => {
   test('has properties "data" and "next"', () => {
     const node = new Node('a', 'b');
+    console.log("🚀 ~ test ~ node:", node)
     expect(node.data).toEqual('a');
     expect(node.next).toEqual('b');
   });

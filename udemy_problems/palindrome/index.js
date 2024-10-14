@@ -8,12 +8,24 @@
 //   palindrome("abcdefg") === false
 
 function palindrome(str) {
-    return str.split('').every((char, i) => {
-       return char === str[str.length - i - 1];
-    });
+    let mid = Math.floor((str.length - 1) / 2);
+    let i = 0;
+
+    while (i < mid) {
+        if (str[i] !== str[str.length - 1 - i]) {
+            return false
+        }
+        i++;
+    }
+    return true;
 }
 
-palindrome('aba');
+// function palindrome(str) {
+//     return str.split('').every((char, i) => {
+//        return char === str[str.length - i - 1];
+//     });
+// }
+
 module.exports = palindrome;
 
 /* *********************************************** */

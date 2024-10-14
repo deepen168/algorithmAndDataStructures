@@ -8,12 +8,19 @@
 //       '#'
 //   pyramid(2)
 //       ' # '
-//       '###'
+//       '###' 3
 //   pyramid(3)
 //       '  #  '
 //       ' ### '
-//       '#####'
+//       '#####' 5
+//   pyramid(4)
+//      '   #   '
+//      '  ###  '
+//      ' ##### '
+//      '#######' 7
 
-function pyramid(n) {}
+function pyramid(n) {
+    
+}
 
 module.exports = pyramid;
